@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# EcoStay AI – Smart Homestay & Eco-Tourism Booking Assistant
 
-## Getting Started
+## Project Overview
+EcoStay AI is a web-based intelligent booking platform designed to help users discover and book eco-friendly homestays. The system focuses on sustainable tourism by providing personalized recommendations, real-time availability (planned), and AI-assisted travel guidance.
 
-First, run the development server:
+## Problem Statement
+Travelers often face difficulty in finding reliable, eco-friendly accommodations with transparent information and personalized suggestions. EcoStay AI solves this by centralizing listings and enhancing discovery using AI-driven recommendations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Core Features
+- Smart search for homestays based on location, budget, and availability  
+- Advanced filtering for eco-friendly stays and amenities  
+- User authentication and booking flow (planned)  
+- Review and rating system for transparency  
+- AI-powered recommendation assistant using Gemini API  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## AI Integration
+The project integrates **Google Gemini API** to act as an intelligent assistant that:
+- Suggests personalized homestays based on user preferences  
+- Answers user queries in natural language (chatbot-style interface)  
+- Enhances search results using contextual understanding  
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
+- **Frontend:** React.js  
+- **Backend:** Node.js / Express.js (planned)  
+- **Database:** MongoDB Atlas  
+- **AI/ML:** Google Gemini API  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Status
+Currently in the initial development stage. Frontend architecture and backend setup are planned, and AI integration will be implemented in later phases.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Improvements
+- Real-time booking system  
+- Payment gateway integration  
+- Map-based homestay discovery  
+- Smart itinerary planner using AI  
