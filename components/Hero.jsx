@@ -1,6 +1,16 @@
+"use client";
+
+import { useTheme } from "./ThemeContext";
+
 export default function Hero() {
+  const { darkMode } = useTheme();
+
   return (
-    <section className="text-center py-20">
+    <section
+      className={`text-center py-20 transition-all duration-300 ${
+        darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+      }`}
+    >
       <h1 className="text-5xl font-bold">
         Find Your Perfect Homestay
       </h1>
