@@ -17,11 +17,15 @@ export function ThemeProvider({ children }) {
 
   // Apply and save theme
   useEffect(() => {
+    const html = document.documentElement;
+
     if (darkMode) {
-      document.body.classList.add("dark");
+      html.classList.add("dark");
+      html.classList.remove("light");
       localStorage.setItem("theme", "dark");
     } else {
-      document.body.classList.remove("dark");
+      html.classList.remove("dark");
+      html.classList.add("light");
       localStorage.setItem("theme", "light");
     }
   }, [darkMode]);
