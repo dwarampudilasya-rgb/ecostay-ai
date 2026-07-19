@@ -11,6 +11,8 @@
 !.yarn/releases
 !.yarn/versions
 
+
+.env.local
 # testing
 /coverage
 
@@ -42,3 +44,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#backend
+backend/.env
