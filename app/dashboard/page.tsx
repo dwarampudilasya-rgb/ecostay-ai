@@ -4,9 +4,21 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useTheme } from "../../components/ThemeContext";
 import AuthGuard from "../../components/AuthGuard";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
 export default function Dashboard() {
   const { darkMode } = useTheme();
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+  axios
+    .get("http://localhost:5000/api/homestays")
+    .then((response) => {
+      setCount(response.data.length);
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+}, []);
 
   return (
   <AuthGuard>
@@ -29,7 +41,9 @@ export default function Dashboard() {
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
             <div className="text-4xl">🏡</div>
             <h2 className="font-bold mt-3">Homestays</h2>
-            <p className="text-3xl font-bold text-green-600 mt-2">3</p>
+            <p className="text-3xl font-bold text-green-600 mt-2">
+  {count}
+</p>
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6 text-center">
