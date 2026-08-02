@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useTheme } from "../../components/ThemeContext";
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 export default function Login() {
   const { darkMode } = useTheme();
 
@@ -27,13 +27,13 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const handleLogin = async () => {
   try {
-    const response = await axios.post(
-      "http://localhost:5000/api/auth/login",
-      {
-        email,
-        password,
-      }
-    );
+const response = await axios.post(
+  `${API_URL}/api/auth/login`,
+  {
+    email,
+    password,
+  }
+);
 
     localStorage.setItem("token", response.data.token);
 

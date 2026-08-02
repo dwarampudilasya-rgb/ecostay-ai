@@ -6,19 +6,20 @@ import { useTheme } from "../../components/ThemeContext";
 import AuthGuard from "../../components/AuthGuard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+const API_URL = process.env.NEXT_PUBLIC_API_URL!;
 export default function Dashboard() {
   const { darkMode } = useTheme();
   const [count, setCount] = useState(0);
   useEffect(() => {
-  axios
-    .get("http://localhost:5000/api/homestays")
+axios
+  .get(`${API_URL}/api/homestays`)
     .then((response) => {
       setCount(response.data.length);
     })
     .catch((err) => {
       console.error(err);
     });
-}, []);
+}, [API_URL]);
 
   return (
   <AuthGuard>

@@ -4,24 +4,26 @@ import { useTheme } from "./ThemeContext";
 import { useState } from "react";
 import axios from "axios";
 
+
 export default function Hero() {
   const { darkMode } = useTheme();
   const [prompt, setPrompt] = useState("");
 const [reply, setReply] = useState("");
 const [loading, setLoading] = useState(false);
 const [error, setError] = useState("");
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 const getRecommendation = async () => {
   try {
     setLoading(true);
     setError("");
     setReply("");
 
-    const res = await axios.post(
-      "http://localhost:5000/api/ai/recommend",
-      {
-        prompt,
-      }
-    );
+const res = await axios.post(
+  `${API_URL}/api/ai/recommend`,
+  {
+    prompt,
+  }
+);
 
     setReply(res.data.reply);
   } catch (err) {

@@ -28,10 +28,10 @@ const [price, setPrice] = useState("");
 const [success, setSuccess] = useState("");
 const [editingId, setEditingId] = useState("");
 const [isEditing, setIsEditing] = useState(false);
-
+const API_URL = process.env.NEXT_PUBLIC_API_URL!;
   useEffect(() => {
     axios
-      .get<Homestay[]>("http://localhost:5000/api/homestays")
+      .get<Homestay[]>(`${API_URL}/api/homestays`)
       .then((response) => {
         setHomestays(response.data);
         setLoading(false);
@@ -41,7 +41,7 @@ const [isEditing, setIsEditing] = useState(false);
   setError("Unable to load homestays.");
   setLoading(false);
 });
-  }, []);
+  }, [API_URL]);
   const addHomestay = async () => {
   if (!name || !location || !price) {
     setError("Please fill all fields.");
@@ -49,11 +49,11 @@ const [isEditing, setIsEditing] = useState(false);
   }
 
   try {
-    await axios.post("http://localhost:5000/api/homestays", {
-      name,
-      location,
-      price: Number(price),
-    });
+await axios.post(`${API_URL}/api/homestays`, {
+  name,
+  location,
+  price: Number(price),
+});
 
     setSuccess("Homestay added successfully!");
     setError("");
@@ -62,7 +62,7 @@ const [isEditing, setIsEditing] = useState(false);
     setLocation("");
     setPrice("");
 
-    const response = await axios.get("http://localhost:5000/api/homestays");
+    const response = await axios.get(`${API_URL}/api/homestays`)
     setHomestays(response.data);
 
   } catch (err) {
@@ -78,12 +78,10 @@ const deleteHomestay = async (id: string) => {
 
   try {
     await axios.delete(
-      `http://localhost:5000/api/homestays/${id}`
-    );
+  `${API_URL}/api/homestays/${id}`
+);
 
-    const response = await axios.get(
-      "http://localhost:5000/api/homestays"
-    );
+    const response = await axios.get(`${API_URL}/api/homestays`);
 
     setHomestays(response.data);
   } catch (err) {
@@ -100,7 +98,7 @@ const editHomestay = (stay: any) => {
 const updateHomestay = async () => {
   try {
     await axios.put(
-      `http://localhost:5000/api/homestays/${editingId}`,
+  `${API_URL}/api/homestays/${editingId}`,
       {
         name,
         location,
@@ -108,10 +106,7 @@ const updateHomestay = async () => {
       }
     );
 
-    const response = await axios.get(
-      "http://localhost:5000/api/homestays"
-    );
-
+    const response = await axios.get(`${API_URL}/api/homestays`);
     setHomestays(response.data);
 
     setSuccess("Homestay updated successfully!");
