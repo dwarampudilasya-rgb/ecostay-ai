@@ -2,13 +2,23 @@
 
 ## Project Overview
 
-EcoStay AI is a full-stack web application designed to help users discover and explore eco-friendly homestays. The platform promotes sustainable tourism by providing a simple interface for viewing, searching, creating, updating, and managing homestay listings. The backend uses MongoDB Atlas for persistent data storage and RESTful APIs for CRUD operations.
+EcoStay AI is a full-stack web application designed to help users discover and explore eco-friendly homestays. The platform promotes sustainable tourism by providing an intuitive interface for viewing, searching, creating, updating, and managing homestay listings. The application uses MongoDB Atlas for persistent data storage, Express.js REST APIs for backend services, and a modern Next.js frontend deployed on Vercel.
+
+---
+
+# 🌐 Live Deployment
+
+**Frontend (Vercel)**
+https://ecostay-ai-ten.vercel.app/
+
+**Backend (Render)**
+https://ecostay-backend-k5zj.onrender.com
 
 ---
 
 ## Problem Statement
 
-Travelers often struggle to find trustworthy eco-friendly accommodations with clear information and an easy booking experience. EcoStay AI addresses this challenge by providing a centralized platform for managing homestay listings while laying the foundation for future AI-powered recommendations.
+Travelers often struggle to find trustworthy eco-friendly accommodations with clear information and an easy booking experience. EcoStay AI addresses this challenge by providing a centralized platform for managing homestay listings while laying the foundation for AI-powered travel recommendations.
 
 ---
 
@@ -17,15 +27,21 @@ Travelers often struggle to find trustworthy eco-friendly accommodations with cl
 ### Frontend
 
 * Responsive user interface
+* Dark/Light theme support
 * Homestay listing display
+* Add, Edit, Update, and Delete homestays
+* Dashboard page
+* Login page
+* AI Recommendation interface
 * Integration with backend REST APIs
 
 ### Backend
 
 * Express.js REST API
-* Full CRUD functionality
+* Complete CRUD operations
 * Search homestays by location
-* MongoDB Atlas database integration using Mongoose
+* MongoDB Atlas integration using Mongoose
+* JWT-based authentication support
 * Environment variable configuration using `.env`
 
 ---
@@ -45,14 +61,14 @@ Travelers often struggle to find trustworthy eco-friendly accommodations with cl
 
 ## Database
 
-**Database Chosen:** MongoDB Atlas
+**Database:** MongoDB Atlas
 
-### Why MongoDB?
+### Why MongoDB Atlas?
 
-* Flexible document-based database
+* Flexible document-oriented database
+* Cloud-hosted and scalable
 * Easy integration with Node.js using Mongoose
-* Free cloud hosting through MongoDB Atlas
-* Suitable for storing homestay records with scalable document structures
+* Suitable for storing homestay information efficiently
 
 ---
 
@@ -66,31 +82,14 @@ Travelers often struggle to find trustworthy eco-friendly accommodations with cl
 | location | String | Yes      |
 | price    | Number | Yes      |
 
-**Schema Diagram**
-
-> *(Insert the Week 5 Schema Diagram image here after creating it.)*
-
-Example:
-
-```text
-+----------------------+
-|      Homestay        |
-+----------------------+
-| _id                  |
-| name                 |
-| location             |
-| price                |
-+----------------------+
-```
-
 ---
 
 ## Database Setup
 
 1. Create a MongoDB Atlas cluster.
 2. Create a database user.
-3. Whitelist your IP address.
-4. Copy the MongoDB connection string.
+3. Add the required IP access.
+4. Obtain the MongoDB connection string.
 5. Create a `.env` file inside the backend folder.
 
 Example:
@@ -98,86 +97,121 @@ Example:
 ```env
 MONGO_URI=your_mongodb_connection_string
 PORT=5000
+JWT_SECRET=your_secret_key
+HF_API_KEY=your_api_key
 ```
 
-6. Install dependencies.
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-7. Start the backend server.
+Run the backend:
 
 ```bash
-npm run dev
+npm start
 ```
 
 ---
 
 ## AI Integration
 
-The project is designed to integrate Google Gemini API in future development.
-
-Planned AI features include:
-
-* Personalized homestay recommendations
-* Intelligent travel assistant
-* Natural language query support
-* Smart travel suggestions
+EcoStay AI includes an AI-powered travel recommendation feature that assists users in discovering eco-friendly travel destinations and homestays using natural language prompts.
 
 ---
 
 ## Tech Stack
 
-* Frontend: React.js
-* Backend: Node.js
-* Framework: Express.js
-* Database: MongoDB Atlas
-* ODM: Mongoose
-* AI: Google Gemini API (Planned)
+### Frontend
+
+* Next.js
+* React.js
+* Tailwind CSS
+* Axios
+
+### Backend
+
+* Node.js
+* Express.js
+* Mongoose
+* JWT Authentication
+
+### Database
+
+* MongoDB Atlas
+
+### AI
+
+* Google Gemini API
+
+### Deployment
+
+* Vercel (Frontend)
+* Render (Backend)
 
 ---
 
 ## Project Structure
 
 ```text
-homestay-app/
+ecostay-ai/
 │
 ├── app/
 ├── components/
+├── public/
 ├── backend/
 │   ├── models/
-│   │   └── Homestay.js
 │   ├── server.js
 │   ├── package.json
-│   └── .env.example
+│   └── .env
 │
 ├── README.md
-└── package.json
+├── package.json
+└── next.config.js
 ```
 
 ---
 
 ## Current Progress
 
-* Frontend setup completed
-* Express backend developed
-* MongoDB Atlas integrated
-* Mongoose model created
-* Full CRUD APIs implemented
-* Search endpoint implemented
-* Data persistence verified
-* GitHub repository updated
+* ✅ Responsive frontend completed
+* ✅ Backend REST API completed
+* ✅ MongoDB Atlas integrated
+* ✅ Full CRUD functionality implemented
+* ✅ Dashboard implemented
+* ✅ Authentication module integrated
+* ✅ AI Recommendation feature implemented
+* ✅ Frontend deployed on Vercel
+* ✅ Backend deployed on Render
+* ✅ Public application accessible online
+
+---
+
+## Known Limitations (Free Tier)
+
+* Render free instances automatically spin down after periods of inactivity.
+* The first backend request after inactivity may take **30–60 seconds** while the service wakes up.
+* Performance may be slower than paid hosting during peak usage.
 
 ---
 
 ## Future Improvements
 
-* User Authentication
-* Booking System
-* Payment Gateway Integration
-* Review and Rating System
-* AI-powered Personalized Recommendations
-* Interactive Maps
-* Smart Itinerary Planning
-* Admin Dashboard
+* Booking system
+* Payment gateway integration
+* Review and rating system
+* Advanced AI-based personalized recommendations
+* Interactive maps
+* Smart itinerary planning
+* Admin dashboard
+* Email notifications
+* Mobile application support
+
+---
+
+## Author
+
+**Lasya Dwarampudi**
+
+**Intern ID:** 26100882
